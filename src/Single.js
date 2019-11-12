@@ -8,6 +8,7 @@ import {
   TextInput,
   FlatList,
   Alert,
+  Button,
   TouchableOpacity,
 } from 'react-native';
 
@@ -45,13 +46,19 @@ export default class Single extends React.Component {
       header: null
     };
     
+    _onPressButton() {  
+        Alert.alert('You tapped the button!')  
+    } 
+
     render() {  
   
       
         return (  
             
-          <ScrollView>
-  <View> 
+            <View>
+
+<ScrollView>
+  <View style={{marginBottom: 50}}> 
   
   
   
@@ -115,7 +122,22 @@ export default class Single extends React.Component {
   </View>
   
           </ScrollView>
-  
+
+
+        
+        <View style={styles.buttonContainer}>
+            <TouchableOpacity  onPress={this._onPressButton}>
+                <View style={styles.button}>
+                     <Text style={styles.buttonText}>Chat</Text>
+
+                </View>
+
+            </TouchableOpacity>
+        
+        </View>
+
+
+            </View>
   
     );  
     }  
@@ -128,6 +150,23 @@ const styles = StyleSheet.create({
       
       backgroundColor: '#FFFFFF',
     },
+
+    buttonContainer: {  
+        width: '100%',
+        position: 'absolute',
+        bottom:0,
+        left:0, 
+    },  
+    button: {  
+        width: '100%', 
+        alignItems: 'center', 
+        backgroundColor: '#194C9A'  
+    },  
+    buttonText: {  
+        padding: 10,  
+        color: 'white',  
+        fontSize: 18  
+    },  
   
     rate: {
       fontSize: 14,
